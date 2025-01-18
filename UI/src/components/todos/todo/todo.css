@@ -1,0 +1,56 @@
+.todo{
+    width: 80%;
+    border: 1px solid #ddd;
+    margin: 20px 10%;
+    padding: 20px 0.5%;
+    box-shadow: 4px 4px 15px #ddd;
+    text-align: center;
+    border-radius: 20px;
+    float: right;
+}
+
+.todo-twoColumn{
+    width: 30%;
+    margin: 20px 1%;
+}
+
+.todoNumber{
+    display: contents;
+    font-weight: bold;
+}
+
+.formItemCountainer{
+    display: flow-root;
+    font-weight: bold;
+    margin: 15px;
+    width: 95%;
+    text-align: right;
+}
+
+.todo label{
+    line-height: 48px;
+}
+
+.todo input{
+    width: 65%;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 7px #ddd;
+    padding: 10px 15px;
+    font-size: 17px;
+    border-radius: 20px;
+    float: left;
+}
+
+.todoButton {
+    margin: 10px !important;
+    width: 100px;
+}
+
+
+/* @media (min-width:500px) {
+    .todo-twoColumn{
+        width: 30%;
+        float: right;
+        margin: 20px 10% 20px auto;
+    }
+} */

@@ -1,0 +1,86 @@
+
+@media (prefers-reduced-motion: no-preference) {
+  .Animation {
+    animation: App-logo-spin infinite 2s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+}
+
+@font-face {
+  font-family: iransans;
+  src: url(../public/font/IRANSansXFaNum-Regular.woff),url(../public/font/IRANSansXFaNum-Bold.woff);
+}
+
+*{
+  font-family: iransans;
+}
+
+.App {
+  text-align: center;
+  margin-top: 90px;
+}
+
+.searchBarCountainer {
+  float: right;
+  margin: 80px 50px 10px 50px;
+  width: 50%;
+}
+
+#searchbar {
+  width: 50%;
+  border: 1px solid #ddd;
+  margin: 20px;
+  box-shadow: 2px 2px 7px #ddd;
+  padding: 11px 15px;
+  font-size: 17px;
+  border-radius: 20px;
+}
+
+.todosCountainer {
+   float: right;
+   margin-bottom: 100px;
+   width: 100%;
+}
+
+.scroll {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin: 20px !important;
+}
+
+.changeShow {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  margin: 20px !important;
+}
+
+@media(max-width:500px) {
+  .searchBarCountainer {
+    width: 85%;
+    display: block;
+    margin: 0 auto;
+    box-sizing: border-box;
+    float: none;
+  }
+
+  #searchbar {
+    width: 85%;
+    box-sizing: border-box;
+  }
+}

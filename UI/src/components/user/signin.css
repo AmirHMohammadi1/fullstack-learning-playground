@@ -1,0 +1,18 @@
+.signin {
+    margin: auto;
+}
+
+.signin input {
+    width: 80%;
+    border: 1px solid #ddd;
+    margin: 10px 10%;
+    box-shadow: 2px 2px 7px #ddd;
+    padding: 11px 15px;
+    font-size: 17px;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.signin .logo {
+    height: 70px;
+}

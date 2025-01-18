@@ -1,0 +1,39 @@
+.sidebar {
+    width: 260px;
+    height: 100%;
+    border-left: 1px solid #ddd;
+    box-shadow: 0px 2px 6px #ddd;
+    background: #fff;
+    position: fixed;
+    z-index: 100;
+    right: 0;
+    top: 0;
+    box-sizing: border-box;
+    padding: 15px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.open {
+    transform: translateX(0);
+}
+.close {
+    transform: translateX(100%);
+}
+
+.sidebar .logo {
+    height: 70px;
+    margin: 10px auto;
+}
+
+.sidebar .navbar {
+    height: auto;
+    margin: 10px auto;
+    display: block;
+}
+
+.sidebar .button {
+    position: absolute;
+    bottom: 10%;
+    left: 30%;
+    display: block;
+}

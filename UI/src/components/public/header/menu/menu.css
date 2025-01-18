@@ -1,0 +1,25 @@
+.navbar {
+    height: 100%;
+}
+
+.navbarmenu {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+@media(max-width:500px) {
+    .navbarmenu {
+        flex-flow: column;
+        align-items: normal;
+        margin: 10px 0;
+        padding: 0 15px;
+        height: auto;
+        background: aliceblue;
+        border-radius: 20px;
+        box-sizing: border-box;
+    }
+}

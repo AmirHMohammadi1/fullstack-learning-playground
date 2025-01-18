@@ -1,0 +1,18 @@
+.modal {
+    width: 40%;
+    height: auto;
+    position: fixed;
+    background: #fff;
+    left: 30%;
+    top: 30%;
+    border: 1px solid #ddd;
+    box-shadow: 4px 4px 15px #ddd;
+    padding: 15px;
+    text-align: center;
+    border-radius: 20px;
+    box-sizing: border-box;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    transition: all 1s cubic-bezier(.68,-0.55,.27,1.55);
+}

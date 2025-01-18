@@ -1,0 +1,35 @@
+.listBtn {
+    margin: 10px !important;
+}
+
+.todoList {
+    width: 50%;
+    border: 1px solid #ddd;
+    margin: 20px 40px;
+    padding: 10px 15px 10px 10px;
+    box-shadow: 4px 4px 15px #ddd;
+    text-align: right;
+    border-radius: 20px;
+    float: right;
+}
+
+.todoList input {
+    width: 60%;
+    /* border: 1px solid #ddd; */
+    border: none;
+    margin: 10px;
+    /* box-shadow: 2px 2px 7px #ddd; */
+    padding: 11px 15px;
+    font-size: 17px;
+    /* border-radius: 20px; */
+    color: black;
+}
+
+@media(max-width:500px) {
+    .todoList {
+        width: 90%;
+        box-sizing: border-box;
+        margin: 5px auto;
+        float: none;
+    }
+}
