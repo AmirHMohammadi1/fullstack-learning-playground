@@ -3,20 +3,28 @@ import Todos from '../components/todos/todos';
 import TodosList from '../components/todos/todosList';
 import Newtodo from '../components/todos/newTodo/newTodo';
 import Button from '../components/UI/button/button';
+import axios from 'axios'
 // import { useLocation } from 'react-router';
 
 
-const Home = (props)=>{
+const Home = ()=>{
   // const Location = useLocation();
   // console.log(Location)
 
-    const[todosState,settodos]=useState([
-      {id:1,todoTitle:'برنامه نویسی',todoStart:'10:00',todoTime:'60',todoPr:'برای شروع'},
-      {id:2,todoTitle:'برنامه نویسی',todoStart:'10:00',todoTime:'60',todoPr:'برای شروع'},
-      {id:3,todoTitle:'برنامه نویسی',todoStart:'10:00',todoTime:'60',todoPr:'برای شروع'},
-      {id:4,todoTitle:'برنامه نویسی',todoStart:'10:00',todoTime:'60',todoPr:'برای شروع'},
-    ]);
-    
+    const[todosState,settodos]=useState([]);
+    useEffect(()=>{
+      axios.get('http://127.0.0.1:3001/todo').then(
+        Response => 
+          // console.log(Response.data)
+          settodos(Response.data)
+      )
+    },[])
+    // async function axiosF() {
+    //   await axios.get('http://127.0.0.1:3001/todo').then(
+    //     Response => console.log(Response)
+    //   )
+    // }
+    // axiosF()
     const inputElement = useRef()
 
     const titleChangeHandler=(event,id)=>{
