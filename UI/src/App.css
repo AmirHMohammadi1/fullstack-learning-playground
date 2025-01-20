@@ -35,9 +35,8 @@
 }
 
 .searchBarCountainer {
-  float: right;
-  margin: 80px 50px 10px 50px;
-  width: 50%;
+  margin: 50px auto;
+  display: block;
 }
 
 #searchbar {

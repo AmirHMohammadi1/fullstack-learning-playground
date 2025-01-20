@@ -3,26 +3,29 @@
 }
 
 .todoList {
-    width: 50%;
+    width: 90%;
     border: 1px solid #ddd;
-    margin: 20px 40px;
+    margin: 20px auto;
     padding: 10px 15px 10px 10px;
     box-shadow: 4px 4px 15px #ddd;
     text-align: right;
     border-radius: 20px;
-    float: right;
 }
 
-.todoList input {
-    width: 60%;
-    /* border: 1px solid #ddd; */
+.todoList input,
+.todo-list-label {
+    width: 76%;
     border: none;
     margin: 10px;
-    /* box-shadow: 2px 2px 7px #ddd; */
     padding: 11px 15px;
     font-size: 17px;
-    /* border-radius: 20px; */
     color: black;
+}
+
+.ItemsList {
+    display: flex;
+    text-align: right;
+    align-items: center;
 }
 
 @media(max-width:500px) {

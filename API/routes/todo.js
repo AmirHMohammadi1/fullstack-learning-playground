@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
   console.log(ToDo)
 });
 
-/* GET ToDo listing. */
+/* GET ToDo by ID. */
 router.get('/:id', function(req, res, next) {
   // console.log(req.params.id)
   const todo = ToDo.find(c => c.id === parseInt(req.params.id));

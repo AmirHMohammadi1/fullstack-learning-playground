@@ -2,14 +2,13 @@
     width: 90%;
 } */
 .edittodo{
-    width: 30%;
+    width: 80%;
     border: 1px solid #ddd;
-    margin: 90px 5% 50px 5%;
+    margin: 90px auto;
     padding: 10px;
     box-shadow: 4px 4px 15px #ddd;
     text-align: center;
     border-radius: 20px;
-    float: right;
 }
 
 .edittodo label{
@@ -19,7 +18,7 @@
 }
 
 .edittodo input{
-    width: 80%;
+    width: 90%;
     border: 1px solid #ddd;
     margin: 10px auto;
     box-shadow: 2px 2px 7px #ddd;
