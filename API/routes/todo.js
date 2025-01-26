@@ -3,7 +3,7 @@ var router = express.Router();
 
 const ToDo = [
     {id:1,todoTitle:'آموزش برنامه نویسی',todoStart:'9:00',todoTime:'60',todoPr:'برای شروع'},
-    {id:2,todoTitle:'کتاب و مظالعه',todoStart:'10:00',todoTime:'30',todoPr:'برای شروع'},
+    {id:2,todoTitle:'کتاب و مطالعه',todoStart:'10:00',todoTime:'30',todoPr:'برای شروع'},
     {id:3,todoTitle:'آموزش زبان',todoStart:'10:30',todoTime:'120',todoPr:'برای شروع'},
     {id:4,todoTitle:'کار عمیق',todoStart:'12:30',todoTime:'120',todoPr:'برای شروع'},
 ];
