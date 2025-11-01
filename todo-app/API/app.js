@@ -6,6 +6,16 @@ var logger = require('morgan');
 const bodyparser = require('body-parser');
 const cors = require("cors");
 const mongoose = require("mongoose")
+const swaggerJsdoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDefinition = require('./swagger/swagger-definition');
+// try {
+//   const swaggerDefinition = require('./swagger/swagger-definition');
+//   console.log('✅ swaggerDefinition بارگذاری شد');
+//   console.log('عنوان:', swaggerDefinition.info.title);
+// } catch (error) {
+//   console.error('❌ خطا در بارگذاری swaggerDefinition:', error.message);
+// }
 
 
 var indexRouter = require('./routes/index');
@@ -33,6 +43,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// تنظیمات Swagger
+const options = {
+  swaggerDefinition, // این باید به درستی تعریف شود
+  apis: ['./routes/*.js'], // مسیر فایل‌های route
+};
+const specs = swaggerJsdoc(options);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
