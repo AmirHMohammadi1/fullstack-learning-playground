@@ -1,0 +1,45 @@
+extends layout
+
+block content
+  h2(style='color: #2c3e50; margin-bottom: 30px; text-align: center;') 📁 فایل‌های آپلود شده
+
+  if message
+    .alert.alert-success= message
+  
+  if error
+    .alert.alert-error= error
+
+  if files && files.length > 0
+    .file-list
+      each file in files
+        .file-item
+          .file-info
+            h4(style='color: #2c3e50; margin-bottom: 10px;') 📄 #{file.name}
+            p(style='color: #7f8c8d; margin: 5px 0;') 
+              strong حجم: 
+              | #{file.size}
+            p(style='color: #7f8c8d; margin: 5px 0;') 
+              strong تاریخ آپلود: 
+              | #{file.uploaded}
+          
+          .file-actions
+            a(href='/upload/download/' + file.name)
+              button.btn-download(type='button') 📥 دانلود
+            
+            form(action='/upload/delete/' + file.name method='POST' style='display:inline')
+              button.btn-delete(type='submit' onclick='return confirm("آیا از حذف این فایل مطمئن هستید؟")') 🗑️ حذف
+  else
+    .upload-section(style='text-align: center;')
+      h3(style='color: #7f8c8d;') فایلی برای نمایش وجود ندارد
+      p(style='color: #95a5a6; margin-top: 10px;') هنوز هیچ فایلی آپلود نکرده‌اید. از صفحه اصلی فایل‌های خود را آپلود کنید.
+      a(href='/')
+        button(style='margin-top: 20px;') بازگشت به صفحه اصلی
+
+  //- آپلود سریع از صفحه مدیریت
+  .upload-section(style='margin-top: 40px;')
+    h3 ⚡ آپلود سریع
+    form(action='/upload/single' method='POST' enctype='multipart/form-data' style='display: flex; gap: 10px; align-items: end;')
+      .form-group(style='flex: 1;')
+        label(for='quickUpload') انتخاب فایل:
+        input(type='file' name='file' id='quickUpload' accept='.jpg,.jpeg,.png,.gif,.pdf,.txt' required)
+      button(type='submit') آپلود و به روزرسانی

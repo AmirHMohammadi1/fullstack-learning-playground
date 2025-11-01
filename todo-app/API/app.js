@@ -9,13 +9,7 @@ const mongoose = require("mongoose")
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDefinition = require('./swagger/swagger-definition');
-// try {
-//   const swaggerDefinition = require('./swagger/swagger-definition');
-//   console.log('✅ swaggerDefinition بارگذاری شد');
-//   console.log('عنوان:', swaggerDefinition.info.title);
-// } catch (error) {
-//   console.error('❌ خطا در بارگذاری swaggerDefinition:', error.message);
-// }
+const fs = require('fs');
 
 
 var indexRouter = require('./routes/index');
@@ -40,7 +34,7 @@ app.use(cors());
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -56,6 +50,35 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/todo', todo);
 app.use('/api', todoApiDB)
+app.use('/upload', require('./routes/uploadRoutes'))
+const uploadsDir = path.join(__dirname, 'uploads/anonymous');
+app.use('/uploads', (req, res) => {
+  fs.readdir(uploadsDir, (err, files) => {
+        if (err) {
+            return res.render('uploads', { 
+                title: 'فایل‌های آپلود شده',
+                files: [],
+                error: 'خطا در خواندن فایل‌ها'
+            });
+        }
+
+        const fileList = files.map(file => {
+            const filePath = path.join(uploadsDir, file);
+            const stats = fs.statSync(filePath);
+            return {
+                name: file,
+                size: (stats.size / 1024).toFixed(2) + ' KB',
+                uploaded: stats.mtime.toLocaleString('fa-IR')
+            };
+        });
+
+        res.render('uploads', { 
+            title: 'فایل‌های آپلود شده',
+            files: fileList,
+            error: null
+        });
+    });
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
