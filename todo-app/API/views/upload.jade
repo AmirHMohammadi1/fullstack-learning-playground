@@ -1,0 +1,66 @@
+extends layout
+
+block content
+  if message
+    .alert.alert-success= message
+  
+  if error
+    .alert.alert-error= error
+
+  .container
+      header
+        h1 🚀 سیستم آپلود فایل
+        p سیستم مدیریت فایل با قابلیت‌های پیشرفته آپلود
+
+  .instructions
+    h4 📋 راهنمای استفاده:
+    ul(style='list-style: none; padding-right: 20px;')
+      li ✅ حداکثر حجم فایل: 10 مگابایت
+      li ✅ فرمت‌های مجاز: JPEG, PNG, GIF, PDF, TXT
+      li ✅ حداکثر تعداد فایل در آپلود گروهی: 5 فایل
+
+  //- فرم آپلود تک فایل
+  .upload-section
+    h3 📁 آپلود تک فایل
+    form(action='/upload/single' method='POST' enctype='multipart/form-data')
+      .form-group
+        label(for='singleFile') انتخاب فایل:
+        input(type='file' name='file' id='singleFile' accept='.jpg,.jpeg,.png,.gif,.pdf,.txt' required)
+      button(type='submit') آپلود فایل
+
+  //- فرم آپلود چند فایل
+  .upload-section
+    h3 📂 آپلود چند فایل
+    form(action='/upload/multiple' method='POST' enctype='multipart/form-data')
+      .form-group
+        label(for='multipleFiles') انتخاب چند فایل:
+        input(type='file' name='files' id='multipleFiles' multiple accept='.jpg,.jpeg,.png,.gif,.pdf,.txt' required)
+      button(type='submit') آپلود فایل‌ها
+
+  //- فرم آپلود فیلدهای مختلف
+  .upload-section
+    h3 🎯 آپلود فیلدهای مختلف
+    form(action='/upload/fields' method='POST' enctype='multipart/form-data')
+      .form-group
+        label(for='avatarFile') آواتار (یک فایل):
+        input(type='file' name='avatar' id='avatarFile' accept='.jpg,.jpeg,.png,.gif')
+      
+      .form-group
+        label(for='documentFiles') اسناد (حداکثر 3 فایل):
+        input(type='file' name='documents' id='documentFiles' multiple accept='.pdf,.txt' max='3')
+      
+      button(type='submit') آپلود فایل‌ها
+
+  //- آمار و اطلاعات
+  .upload-section(style='text-align: center; background: linear-gradient(135deg, #74b9ff, #0984e3); color: white;')
+    h3(style='color: white;') 📊 آمار سیستم
+    .stats(style='display: flex; justify-content: space-around; margin-top: 20px;')
+      .stat-item
+        h4(style='font-size: 2em; margin: 0;') 3
+        p نوع آپلود مختلف
+      .stat-item
+        h4(style='font-size: 2em; margin: 0;') 10MB
+        p حداکثر حجم فایل
+      .stat-item
+        h4(style='font-size: 2em; margin: 0;') 5
+        p فرمت پشتیبانی شده

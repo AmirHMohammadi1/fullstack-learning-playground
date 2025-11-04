@@ -19,6 +19,11 @@ router.get('/', (req, res) => {
     `);
 });
 
+// get نمایش صفحه آپلود
+router.get('/uploadform', (req, res) => {
+    res.render('upload')
+})
+
 // آپلود تک فایل
 router.post('/single',
     uploadMiddleware.single('file', 2 * 1024 * 1024), // 2MB

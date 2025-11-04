@@ -10,6 +10,7 @@ const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDefinition = require('./swagger/swagger-definition');
 const fs = require('fs');
+require('dotenv').config();
 
 
 var indexRouter = require('./routes/index');
